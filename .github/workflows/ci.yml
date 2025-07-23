@@ -1,8 +1,13 @@
 name: CI
 on:
-  pull_request:
+  pull_request_target:
     types: [labeled]
 
+permissions:
+  checks: write
+  contents: read
+  pull-requests: write
+  
 jobs:
   build:
     name: Build and preview site
@@ -11,6 +16,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false # This will not store the git credentails on disk, only in memory
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -30,13 +38,10 @@ jobs:
       - name: Build site
         run: |
           lektor build --prune -O output
-      - name: Upload output as artifact
-        uses: actions/upload-artifact@v4
+      # Generated from 'firebase init hosting'
+      - name: Deploy preview
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          name: output
-          path: |
-            output
-            firebase.json
-            # !output/firebase.json
-            !output/**/.*
-            !output/**/node_modules/**
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_ACTIONS_BEWARE_TEST }}'
+          projectId: actions-beware-test
