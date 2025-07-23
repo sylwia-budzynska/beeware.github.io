@@ -34,8 +34,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: output
-          path: output/
-          exclude: |
-            output/firebase.json
-            output/**/.*
-            output/**/node_modules/**
+          path: |
+            output/
+            !output/firebase.json
+            !output/**/.*
+            !output/**/node_modules/**
