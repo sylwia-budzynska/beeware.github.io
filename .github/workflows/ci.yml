@@ -36,6 +36,6 @@ jobs:
           name: output
           path: |
             output
-            !output/firebase.json
+            # !output/firebase.json
             !output/**/.*
             !output/**/node_modules/**
