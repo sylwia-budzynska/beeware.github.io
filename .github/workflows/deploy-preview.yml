@@ -15,7 +15,6 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: output
-          path: output
       # Generated from 'firebase init hosting'
       - name: Deploy preview
         uses: FirebaseExtended/action-hosting-deploy@v0
