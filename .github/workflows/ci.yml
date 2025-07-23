@@ -3,10 +3,10 @@ on:
   pull_request_target:
     types: [labeled]
 
-permissions:
-  checks: write
-  contents: read
-  pull-requests: write
+permissions:  
+  checks: write #This is required by FirebaseExtended/action-hosting-deploy@v0
+  contents: read #This is required for private repositories for the actions/checkout@v4 action
+  pull-requests: write #This is required by FirebaseExtended/action-hosting-deploy@v0
   
 jobs:
   build:
