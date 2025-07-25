@@ -1,0 +1,44 @@
+name: Build
+
+on:
+  workflow_call:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+  
+jobs:
+  build:
+    name: Build and preview site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false # This will not store the git credentails on disk, only in memory
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install --upgrade setuptools wheel
+          pip install -r requirements.txt
+          lektor plugins reinstall
+          sudo apt update -y
+          sudo apt install -y --no-install-recommends gettext
+      - name: Clean
+        run : |
+          lektor clean -O output --yes
+      - name: Build site
+        run: |
+          lektor build --prune -O output
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3.0.1
+        with:
+          path: ./output
