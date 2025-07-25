@@ -50,7 +50,7 @@
 
   <div class="col-sm-4">
     <div class="sidebar-module sidebar-module-inset gutter">
-      <img class="img-fluid center-block" {% if this.image %}src="{{ site.get(this.path, alt='_primary')|url }}{{ this.image }}" {% else %} src="/static/images/defaultlogo.png"{% endif %}>
+      <img class="img-fluid center-block" {% if this.image %}src="{{ site.get(this.path, alt='_primary')|url }}{{ this.image }}" {% else %} src="{{ '/static/images/defaultlogo.png'|asseturl }}"{% endif %}>
     {% if this.github_repo or this.rtfd_name %}<br />{% endif %}
     {% if this.github_repo %}<p><a href="https://github.com/{{ this.github_repo }}"><i class="fa fa-github fa-lg" aria-hidden="true"></i> {{ "source_code"|trans }}</a></p>{% endif %}
     {% if this.rtfd_name %}<p><a href="https://{{ this.rtfd_name }}.readthedocs.io/"><i class="fa fa-book fa-lg" aria-hidden="true"></i> {{ "documentation"|trans }}</a></p>{% endif %}
