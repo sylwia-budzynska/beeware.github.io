@@ -1,6 +1,6 @@
 [project]
 name = BeeWare
-url = http://beeware.org
+url = https://sylwia-budzynska/beeware.github.io/
 url_style = absolute
 
 # `name` in alternatives should be in english. This is used for translations
