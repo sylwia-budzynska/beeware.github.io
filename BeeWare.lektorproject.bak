@@ -1,0 +1,92 @@
+[project]
+name = BeeWare
+url = http://beeware.org
+url_style = absolute
+
+# `name` in alternatives should be in english. This is used for translations
+[alternatives.en]
+name = English
+primary = yes
+locale = en_US
+
+[alternatives.ar]
+name = Arabic
+url_prefix = /ar_AR/
+locale = ar
+
+[alternatives.pt]
+name = Portuguese
+url_prefix = /pt_BR/
+locale = br
+
+[alternatives.zh_CN]
+name = Simplified_Chinese
+url_prefix = /zh_CN/
+locale = zh_CN
+
+[alternatives.zh_TW]
+name = Traditional_Chinese
+url_prefix = /zh_TW/
+locale = zh_TW
+
+[alternatives.de]
+name = German
+url_prefix = /de_DE/
+locale = de_DE
+
+[alternatives.es]
+name = Spanish
+url_prefix = /es/
+locale = es
+
+[alternatives.da]
+name = Danish
+url_prefix = /da_DK/
+locale = da_DK
+
+[alternatives.ko]
+name = Korean
+url_prefix = /ko_KR/
+locale = ko_KR
+
+[alternatives.cs]
+name = Czech
+url_prefix = /cs_CZ/
+locale = cs_CZ
+
+[alternatives.fr]
+name = French
+url_prefix = /fr_FR/
+locale = fr_FR
+
+[alternatives.tr]
+name = Turkish
+url_prefix = /tr_TR/
+locale = tr_TR
+
+[alternatives.it]
+name = Italian
+url_prefix = /it_IT/
+locale = it_IT
+
+[alternatives.pl]
+name = Polish
+url_prefix = /pl_PL/
+locale = pl_PL
+
+[alternatives.fa]
+name = Farsi
+url_prefix = /fa_IR/
+locale = fa_IR
+
+[packages]
+lektor-github-repos = 0.1.1
+lektor-markdown-admonition = 0.3.1
+git+https://github.com/beeware/lektor-i18n-plugin@v0.5.4 =
+
+[servers.ghpages]
+target = ghpages://sylwia-budzynska/beeware.github.io
+default = yes
+
+[servers.ghpages-https]
+target = ghpages+https://sylwia-budzynska/beeware.github.io
