@@ -85,8 +85,8 @@ lektor-markdown-admonition = 0.3.1
 git+https://github.com/beeware/lektor-i18n-plugin@v0.5.4 =
 
 [servers.ghpages]
-target = ghpages://beeware/beeware.github.io?cname=beeware.org
+target = ghpages://sylwia-budzynska/beeware.github.io
 default = yes
 
 [servers.ghpages-https]
-target = ghpages+https://beeware/beeware.github.io?cname=beeware.org
+target = ghpages+https://sylwia-budzynska/beeware.github.io
